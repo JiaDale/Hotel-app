@@ -22,13 +22,16 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="prompt_email">账号</string>
     <string name="prompt_password">密码</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_home">Home</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="welcome">Welcome !</string>
+    <string name="title_dashboard">我的</string>
+    <string name="title_home">首页</string>
+    <string name="title_notifications">通知</string>
+    <string name="welcome">欢迎</string>
     <string name="locating">定位中...</string>
     <string name="location">我的位置</string>
     <string name="search_content">目的地/公寓/民宿/别墅</string>
     <string name="start_search">开始收索</string>
+    <string name="select_people">选择人数</string>
+    <string name="title_collect">收藏</string>
+    <string name="title_order">订单</string>
 
 </resources>

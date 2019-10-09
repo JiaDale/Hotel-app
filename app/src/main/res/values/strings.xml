@@ -125,5 +125,7 @@
     <string name="locating">locating</string>
     <string name="start_search">Start searching</string>
     <string name="search_content">distinct</string>
-    <string name="select_people">选择人数</string>
+    <string name="select_people">Select people</string>
+    <string name="title_collect">Collection</string>
+    <string name="title_order">Order</string>
 </resources>
