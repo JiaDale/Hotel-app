@@ -19,7 +19,6 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-
         mAppBarLayout = root.findViewById(R.id.app_bar);
         mAppBarLayout.addOnOffsetChangedListener((appBarLayout, i) -> {
             View card = root.findViewById(R.id.search_card_view);
@@ -32,53 +31,30 @@ public class HomeFragment extends Fragment {
             float tempAlpha = (float) (1 - x / tempFlag);
             image.setAlpha(tempAlpha);
             if (tempAlpha > 0) return;
-
             tempFlag = Math.log(card.getHeight());
             x = Math.log(i + image.getHeight() + card.getHeight()) / Math.log(1.75);
             tempAlpha = (float) (x - tempFlag - 5);
             card.setAlpha(tempAlpha);
-            if (tempAlpha > 0) {
-                showToolbar(root);
+
+            View view = root.findViewById(R.id.home_app_collapsing_frame);
+            if (tempAlpha > 0){
+                show(view);
             } else {
-                hiddenToolbar(root);
+                hidden(view);
             }
-
-//            card = root.findViewById(R.id.home_app_collapsing_toolbar);
-//
-//            card.setVisibility(View.VISIBLE);
         });
-
-
-//        View toolbar = root.findViewById(R.id.home_app_collapsing_toolbar);
-//        toolbar.setVisibility(View.VISIBLE);
-
-
-//        homeViewModel =ViewModelProviders.of(this).get(HomeViewModel.class);
-//        homeViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }com.google.android.material.appbar.CollapsingToolbarLayout
-//        });
         return root;
     }
 
-    private void hiddenToolbar(View root) {
-//        FragmentActivity activity = getActivity();
-//        if (activity == null){
-//            return;
-//        }
-//        ActionBar actionBar = getActivity().getActionBar();
-//        if (actionBar == null) return;
-//
-//        if (actionBar.getDisplayOptions() ==ActionBar.)
-
+    private void hidden(View view) {
+        if (view.getVisibility() == View.VISIBLE)
+            view.setVisibility(View.INVISIBLE);
     }
 
-    private void showToolbar(View root) {
-
+    private void show(View view) {
+        if (view.getVisibility() != View.VISIBLE)
+            view.setVisibility(View.VISIBLE);
     }
-
 
     @Override
     public void onPrimaryNavigationFragmentChanged(boolean isPrimaryNavigationFragment) {

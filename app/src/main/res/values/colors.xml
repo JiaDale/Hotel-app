@@ -19,4 +19,6 @@
 
 
     <color name="text_color">#2B2B2B</color>
+
+    <color name="text_color_action">#2e98ea</color>
 </resources>

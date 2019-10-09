@@ -15,7 +15,7 @@
         android:id="@+id/login_icon"
         android:layout_width="40pt"
         android:layout_height="40pt"
-        android:layout_marginTop="40pt"
+        android:layout_marginTop="@dimen/login_view_model_margin"
         android:contentDescription="@string/app_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,12 +28,12 @@
         style="@style/common_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40pt"
+        android:layout_marginTop="@dimen/login_view_model_margin"
         android:autofillHints="@string/prompt_email"
         android:background="@drawable/login_edit_text_top"
         android:drawableStart="@drawable/ic_account_box_black_24dp"
-        android:hint="@string/prompt_email"
         android:drawablePadding="@dimen/text_with_image_padding"
+        android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,9 +47,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autofillHints="@string/prompt_password"
-        android:drawablePadding="@dimen/text_with_image_padding"
         android:background="@drawable/login_edit_text_bottom"
         android:drawableStart="@drawable/ic_lock_black_24dp"
+        android:drawablePadding="@dimen/text_with_image_padding"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
@@ -60,32 +60,63 @@
         app:layout_constraintTop_toBottomOf="@+id/username"
         tools:targetApi="o" />
 
-    <Button
+    <CheckBox
+        android:id="@+id/user_remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remember_pass"
+        android:button="@drawable/login_radio_button"
+        android:textColor="@color/text_color_action"
+        app:layout_constraintBottom_toTopOf="@id/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="@dimen/login_button_view_margin"
+        android:background="@drawable/button_water_ripple"
         android:enabled="false"
         android:text="@string/action_sign_in"
         android:textColor="@color/button_text_color"
-        android:background="@drawable/button_water_ripple"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.2" />
 
-    <ProgressBar
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/user_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/login_text_view_margin"
+        android:layout_marginTop="@dimen/login_text_view_margin"
+        android:text="@string/register_account"
+        android:textColor="@color/text_color_action"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/user_forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_text_view_margin"
+        android:layout_marginEnd="@dimen/login_text_view_margin"
+        android:text="@string/forget_password"
+        android:textColor="@color/text_color_action"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/login_load_pb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginStart="@dimen/login_progress_view_margin_x"
+        android:layout_marginTop="@dimen/login_progress_view_margin_y"
+        android:layout_marginEnd="@dimen/login_progress_view_margin_x"
+        android:layout_marginBottom="@dimen/login_progress_view_margin_y"
         android:indeterminate="true"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,6 +124,5 @@
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

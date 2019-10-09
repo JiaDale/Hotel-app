@@ -12,14 +12,27 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.jdy.hotel.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_collect"
+        android:name="com.jdy.hotel.ui.gallery.GalleryFragment"
+        android:label="@string/title_collect"
+        tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.jdy.hotel.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_order"
+        android:name="com.jdy.hotel.ui.send.SendFragment"
+        android:label="@string/title_order"
+        tools:layout="@layout/fragment_send" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.jdy.hotel.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
 </navigation>

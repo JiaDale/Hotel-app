@@ -22,8 +22,18 @@
     <dimen name="common_edit_text_radius">2dp</dimen>
 
     <dimen name="divider_height">1px</dimen>
-    <dimen name="text_with_image_padding">8dp</dimen>
+
+    <dimen name="text_with_image_padding">12dp</dimen>
 
     <dimen name="ripple_button_padding_top_bottom">4px</dimen>
     <dimen name="ripple_button_padding_left_right">8px</dimen>
+
+    <!-- 登录相关-->
+    <dimen name="login_view_model_margin">32pt</dimen>
+
+    <dimen name="login_button_view_margin">16pt</dimen>
+    <dimen name="login_text_view_margin">8pt</dimen>
+    <dimen name="login_progress_view_margin_x">8pt</dimen>
+    <dimen name="login_progress_view_margin_y">18pt</dimen>
+
 </resources>

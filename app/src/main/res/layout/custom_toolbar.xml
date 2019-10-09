@@ -6,7 +6,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:alpha="0.5"
         android:background="@color/gray"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,5 @@
             android:paddingEnd="10dp"
             android:paddingBottom="14dp" />
     </androidx.appcompat.widget.Toolbar>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -32,6 +32,9 @@
     <string name="search_content">distinct</string>
     <string name="select_people">Select people</string>
     <string name="title_collect">Collection</string>
+    <string name="remember_pass">Remember Password</string>
+    <string name="register_account">Register Account</string>
     <string name="title_order">Order</string>
+    <string name="forget_password">Forget password</string>
 
 </resources>

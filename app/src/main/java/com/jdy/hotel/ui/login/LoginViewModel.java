@@ -9,29 +9,26 @@ import androidx.lifecycle.ViewModel;
 import com.jdy.hotel.R;
 import com.jdy.hotel.data.LoginDataSource;
 import com.jdy.hotel.data.LoginRepository;
-import com.jdy.hotel.data.RequestOverListener;
-import com.jdy.hotel.data.response.CorrectData;
-import com.jdy.hotel.data.response.ErrorData;
-import com.jdy.hotel.data.response.ResponseResult;
+import com.jdy.hotel.net.ResponseData;
+import com.jdy.hotel.net.ResponseDataListener;
 
 
-public class LoginViewModel extends ViewModel implements RequestOverListener<ResponseResult> {
+public class LoginViewModel extends ViewModel implements ResponseDataListener<ResponseData> {
 
-    private MutableLiveData<ResponseResult> loginFormState = new MutableLiveData<>();
-    private MutableLiveData<ResponseResult> loginResult = new MutableLiveData<>();
+    private MutableLiveData<ResponseData> loginFormState = new MutableLiveData<>();
+    private MutableLiveData<ResponseData> loginResult = new MutableLiveData<>();
+
     private LoginRepository loginRepository;
-
-//    private ModelCallback callback;
 
     LoginViewModel() {
         this.loginRepository = LoginRepository.getInstance(new LoginDataSource(this));
     }
 
-    LiveData<ResponseResult> getLoginFormState() {
+    LiveData<ResponseData> getLoginFormState() {
         return loginFormState;
     }
 
-    LiveData<ResponseResult> getLoginResult() {
+    LiveData<ResponseData> getLoginResult() {
         return loginResult;
     }
 
@@ -41,13 +38,13 @@ public class LoginViewModel extends ViewModel implements RequestOverListener<Res
     }
 
     public void loginDataChanged(String username, String password) {
-        ResponseResult result;
+        ResponseData result;
         if (!isUserNameValid(username)) {
-            result = new ErrorData(R.string.invalid_username);
+            result = ResponseData.error(R.string.invalid_username);
         } else if (!isPasswordValid(password)) {
-            result = new ErrorData(R.string.invalid_password);
+            result = ResponseData.error(R.string.invalid_password);
         } else {
-            result = new CorrectData(true);
+            result = ResponseData.success();
         }
         loginFormState.setValue(result);
     }
@@ -71,12 +68,7 @@ public class LoginViewModel extends ViewModel implements RequestOverListener<Res
     }
 
     @Override
-    public void over(ResponseResult result) {
-        loginResult.setValue(result);
+    public void onRespond(ResponseData data) {
+        loginResult.setValue(data);
     }
-
-//
-//    public void setCallback(ModelCallback callback) {
-//        this.callback = callback;
-//    }
 }
